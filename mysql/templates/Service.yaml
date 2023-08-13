@@ -18,6 +18,6 @@ spec:
   - name: mysql-port
     protocol: TCP
     # service port
-    port: "{{ .Values.service.servicePort}}"
+    port: {? {.Values.service.servicePort: ''} : ''}
     # pod port
-    targetPort: "{{ .Values.service.targetPort}}"
+    targetPort: {? {.Values.service.targetPort: ''} : ''}
