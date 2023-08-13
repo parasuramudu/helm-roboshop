@@ -1,0 +1,8 @@
+deployment:
+  #imageVersion: latest
+  replicaCount: 1
+service:
+  amqservicePot: 5672
+  amqtargetPort: 5672
+  httpservicePort: 15672
+  httptargetPort: 15672

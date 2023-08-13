@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: default
+  labels:
+    app: mongodb
+    tier: DB
+    project: roboshop
+spec:
+  clusterIP: None
+  selector:
+    # you should provide pod labels here
+    app: mongodb
+    tier: DB
+    project: roboshop
+  ports:
+  - name: mongo-port
+    protocol: TCP
+    # service port
+    port: "{{ .Values.service.servicePort}}"
+    # pod port
+    targetPort: "{{ .Values.service.targetPort}}"

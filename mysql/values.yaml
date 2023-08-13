@@ -1,0 +1,6 @@
+deployment:
+  imageVersion: k8
+  reclicaCount: 1
+service:
+  servicePort: 3306
+  targetPort: 3306

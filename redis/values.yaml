@@ -1,0 +1,6 @@
+deployment:
+  # imageVersion: latest
+  reclicaCount: 1
+service:
+  servicePort: 6379
+  targetPort: 6379

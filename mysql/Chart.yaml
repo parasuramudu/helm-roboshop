@@ -1,0 +1,6 @@
+# This is the metadata for Helm charts
+apiVersion: v1
+name: mysql
+version: 1.0.0 #this is the chart version
+description: This is the Mysql Helm Chart
+appVersion: v1.0.0 #this version belongs to application not kubernetes manifest files
