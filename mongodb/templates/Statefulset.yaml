@@ -9,6 +9,7 @@ metadata:
     project: roboshop
 spec:
   replicas: {{ .Values.deployment.replicaCount}}
+  selector:
     matchLabels:
       app: mongodb
       tier: DB
