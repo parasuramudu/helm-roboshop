@@ -8,7 +8,7 @@ metadata:
     tier: DB
     project: roboshop
 spec:
-  replicas: "{{ .Values.deployment.reclicaCount}}"
+  replicas: {{ .Values.deployment.reclicaCount}}
   selector:
     matchLabels:
       app: redis

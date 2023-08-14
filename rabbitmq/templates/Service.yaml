@@ -18,12 +18,12 @@ spec:
   - name: rabbitmq-amq
     protocol: TCP
     # service port
-    port: "{{ .Values.service.amqservicePot}}"
+    port: {{ .Values.service.amqservicePot}}
     # pod port
-    targetPort: "{{ .Values.service.amqtargetPort}}"
+    targetPort: {{ .Values.service.amqtargetPort}}
   - name: rabbitmq-http
     protocol: TCP
     # service port
-    port: "{{ .Values.service.httpservicePort}}"
+    port: {{ .Values.service.httpservicePort}}
     # pod port
-    targetPort: "{{ .Values.service.httptargetPort}}"
+    targetPort: {{ .Values.service.httptargetPort}}

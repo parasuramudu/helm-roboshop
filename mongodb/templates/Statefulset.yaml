@@ -8,7 +8,7 @@ metadata:
     tier: DB
     project: roboshop
 spec:
-  replicas: "{{ .Values.deployment.replicaCount}}"
+  replicas: {{ .Values.deployment.replicaCount}}
     matchLabels:
       app: mongodb
       tier: DB
@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: "parasuramkoppada/mongodb:{{ .Values.deployment.imageVersion}}"
+        image: "parasuramkoppada/mongodb:{{ .Values.deployment.replicaCount}}"
         volumeMounts:
         - name: mongodb
           mountPath: /data/db
