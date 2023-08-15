@@ -102,6 +102,9 @@ data:
         location /api/payment/ {
             proxy_pass http://payment:8080/;
         }
+        location /api/ratings/ {
+            proxy_pass http://ratings:80/;
+        }
 
         location /nginx_status {
             stub_status on;
