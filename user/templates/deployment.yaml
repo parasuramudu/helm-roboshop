@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  namespace: default
+  labels:
+    app: user
+    tier: app
+    project: roboshop
+spec:
+  replicas: {{ .Values.deployment.replicaCount}}
+  selector:
+    matchLabels:
+      app: user
+      tier: app
+      project: roboshop
+  template:
+    metadata:
+      name: user
+      labels:
+        app: user
+        tier: app
+        project: roboshop
+    spec:
+      containers:
+      - name: user
+        image: "parasuramkoppada/user:{{ .Values.deployment.imageVersion}}"

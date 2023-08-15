@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping
+  namespace: default
+  labels:
+    app: shipping
+    tier: app
+    project: roboshop
+spec:
+  replicas: {{ .Values.deployment.replicaCount}}
+  selector:
+    matchLabels:
+      app: shipping
+      tier: app
+      project: roboshop
+  template:
+    metadata:
+      name: shipping
+      labels:
+        app: shipping
+        tier: app
+        project: roboshop
+    spec:
+      containers:
+      - name: shipping
+        image: "parasuramkoppada/shipping:{{ .Values.deployment.imageVersion}}"
+        envFrom:
+        - configMapRef:
+            name: shipping-config

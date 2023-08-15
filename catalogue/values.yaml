@@ -1,0 +1,6 @@
+deployment:
+  imageVersion: k8
+  replicaCount: 1
+service:
+  servicePort: 8080
+  targetPort: 8080

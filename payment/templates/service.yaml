@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment
+  namespace: default
+  labels:
+    app: payment
+    tier: app
+    project: roboshop
+spec:
+  selector:
+    # you should provide pod labels here
+    app: payment
+    tier: app
+    project: roboshop
+  ports:
+  - name: payment-port
+    protocol: TCP
+    # service port
+    port: {{ .Values.service.servicePort}}
+    # pod port
+    targetPort: {{ .Values.service.targetPort}}

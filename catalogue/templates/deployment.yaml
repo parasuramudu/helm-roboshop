@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogue
+  namespace: default
+  labels:
+    app: catalogue
+    tier: app
+    project: roboshop
+spec:
+  replicas: {{ .Values.deployment.replicaCount}}
+  selector:
+    matchLabels:
+      app: catalogue
+      tier: app
+      project: roboshop
+  template:
+    metadata:
+      name: catalogue
+      labels:
+        app: catalogue
+        tier: app
+        project: roboshop
+    spec:
+      containers:
+      - name: catalogue
+        image: "parasuramkoppada/catalogue:{{ .Values.deployment.imageVersion}}"

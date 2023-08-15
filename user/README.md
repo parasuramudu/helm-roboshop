@@ -1,0 +1,50 @@
+<!-- apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  namespace: roboshop
+  labels:
+    app: user
+    tier: app
+    project: roboshop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user
+      tier: app
+      project: roboshop
+  template:
+    metadata:
+      name: user
+      labels:
+        app: user
+        tier: app
+        project: roboshop
+    spec:
+      containers:
+      - name: user
+        image: parasuramkoppada/user:k8
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user
+  namespace: roboshop
+  labels:
+    app: user
+    tier: app
+    project: roboshop
+spec:
+  selector:
+    # you should provide pod labels here
+    app: user
+    tier: app
+    project: roboshop
+  ports:
+  - name: user-port
+    protocol: TCP
+    # service port
+    port: 8080
+    # pod port
+    targetPort: 8080 -->

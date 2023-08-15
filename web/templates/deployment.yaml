@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: default
+  labels:
+    app: web
+    tier: web
+    project: roboshop
+spec:
+  replicas: {{ .Values.deployment.replicaCount}}
+  selector:
+    matchLabels:
+      app: web
+      tier: web
+      project: roboshop
+  template:
+    metadata:
+      name: web
+      labels:
+        app: web
+        tier: web
+        project: roboshop
+    spec:
+      containers:
+      - name: web
+        imagePullPolicy: Always
+        image: "parasuramkoppada/web:{{ .Values.deployment.imageVersion}}"
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config
+          items:
+          - key: nginx.conf
+            path: nginx.conf
