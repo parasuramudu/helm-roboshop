@@ -1,0 +1,5 @@
+apiVersion: v1
+name: ratings
+version: 1.0.0
+description: this is the ratings helm chart
+appVersion: v1.0.0

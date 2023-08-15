@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings
+  namespace: default
+  labels:
+    app: ratings
+    tier: app
+    project: roboshop
+spec:
+  replicas: {{ .Values.deployment.replicaCount}}
+  selector:
+    matchLabels:
+      app: ratings
+      tier: app
+      project: roboshop
+  template:
+    metadata:
+      name: ratings
+      labels:
+        app: ratings
+        tier: app
+        project: roboshop
+    spec:
+      containers:
+      - name: ratings
+        image: "parasuramkoppada/ratings:{{ .Values.deployment.imageVersion}}"

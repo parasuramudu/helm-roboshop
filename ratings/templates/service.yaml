@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ratings
+  namespace: default
+  labels:
+    app: ratings
+    tier: app
+    project: roboshop
+spec:
+  selector:
+    # you should provide pod labels here
+    app: ratings
+    tier: app
+    project: roboshop
+  ports:
+  - name: ratings-port
+    protocol: TCP
+    # service port
+    port: {{ .Values.service.servicePort}}
+    # pod port
+    targetPort: {{ .Values.service.targetPort}}
